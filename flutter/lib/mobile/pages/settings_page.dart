@@ -1073,24 +1073,6 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 ),
                 leading: Icon(Icons.info)),
             SettingsTile(
-                onPressed: (context) => launchUrlString('https://yeee.kz'),
-                title: Text('Автор: Ернияз Талғатулы'),
-                value: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('Алматы · yeee.kz · +7 (706) 606-63-23',
-                      style: TextStyle(decoration: TextDecoration.underline)),
-                ),
-                leading: Icon(Icons.verified_user)),
-            SettingsTile(
-                onPressed: (context) => launchUrlString('https://procam.yeee.kz'),
-                title: Text('Экосистема проектов YEEE.KZ'),
-                value: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('ProCam CCTV · ProCam Radar · Royal Banners',
-                      style: TextStyle(decoration: TextDecoration.underline)),
-                ),
-                leading: Icon(Icons.apps)),
-            SettingsTile(
                 title: Text(translate("Build Date")),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
@@ -1227,33 +1209,14 @@ void showAbout(OverlayDialogManager dialogManager) {
     return CustomAlertDialog(
       title: Text(translate('About RustDesk')),
       content: Wrap(direction: Axis.vertical, spacing: 10, children: [
-        Text('Castbox v$version · Сервер: 82.70.51.255'),
-        const Text('Автор: Ернияз Талғатулы (Алматы, Казахстан)'),
+        Text('Castbox v$version'),
         InkWell(
             onTap: () async {
               await launchUrl(Uri.parse('https://castbox.yeee.kz'));
             },
             child: const Padding(
               padding: EdgeInsets.symmetric(vertical: 4),
-              child: Text('Официальный сайт: castbox.yeee.kz',
-                  style: TextStyle(decoration: TextDecoration.underline)),
-            )),
-        InkWell(
-            onTap: () async {
-              await launchUrl(Uri.parse('https://wa.me/77066066323'));
-            },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              child: Text('WhatsApp: +7 (706) 606-63-23',
-                  style: TextStyle(decoration: TextDecoration.underline)),
-            )),
-        InkWell(
-            onTap: () async {
-              await launchUrl(Uri.parse('https://yeee.kz'));
-            },
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
-              child: Text('Экосистема проектов: yeee.kz · procam.yeee.kz',
+              child: Text('castbox.yeee.kz',
                   style: TextStyle(decoration: TextDecoration.underline)),
             )),
       ]),
