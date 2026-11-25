@@ -1,0 +1,23 @@
+name: Build Castbox (Windows, Android, Linux)
+
+on:
+  push:
+    branches:
+      - castbox
+      - main
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-castbox:
+    uses: ./.github/workflows/flutter-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: "castbox-v1.5.3"
+      publish-update-metadata: false
