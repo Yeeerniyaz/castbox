@@ -38,7 +38,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://rustdesk.com/';
+const url = 'https://castbox.yeee.kz/';
 
 enum KeepScreenOn {
   never,
@@ -1061,17 +1061,35 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           tiles: [
             SettingsTile(
                 onPressed: (context) async {
-                  await launchUrl(Uri.parse(url));
+                  await launchUrl(Uri.parse('https://castbox.yeee.kz'));
                 },
                 title: Text('${translate('Version')}: $version'),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('rustdesk.com',
+                  child: Text('castbox.yeee.kz',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
                 ),
                 leading: Icon(Icons.info)),
+            SettingsTile(
+                onPressed: (context) => launchUrlString('https://yeee.kz'),
+                title: Text('Автор: Ернияз Талғатулы'),
+                value: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8),
+                  child: Text('Алматы · yeee.kz · +7 (706) 606-63-23',
+                      style: TextStyle(decoration: TextDecoration.underline)),
+                ),
+                leading: Icon(Icons.verified_user)),
+            SettingsTile(
+                onPressed: (context) => launchUrlString('https://procam.yeee.kz'),
+                title: Text('Экосистема проектов YEEE.KZ'),
+                value: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8),
+                  child: Text('ProCam CCTV · ProCam Radar · Royal Banners',
+                      style: TextStyle(decoration: TextDecoration.underline)),
+                ),
+                leading: Icon(Icons.apps)),
             SettingsTile(
                 title: Text(translate("Build Date")),
                 value: Padding(
@@ -1099,7 +1117,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://rustdesk.com/privacy.html'),
+                  launchUrlString('https://castbox.yeee.kz/#privacy'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
@@ -1208,19 +1226,35 @@ void showAbout(OverlayDialogManager dialogManager) {
   dialogManager.show((setState, close, context) {
     return CustomAlertDialog(
       title: Text(translate('About RustDesk')),
-      content: Wrap(direction: Axis.vertical, spacing: 12, children: [
-        Text('Version: $version'),
+      content: Wrap(direction: Axis.vertical, spacing: 10, children: [
+        Text('Castbox v$version · Сервер: 82.70.51.255'),
+        const Text('Автор: Ернияз Талғатулы (Алматы, Казахстан)'),
         InkWell(
             onTap: () async {
-              const url = 'https://rustdesk.com/';
-              await launchUrl(Uri.parse(url));
+              await launchUrl(Uri.parse('https://castbox.yeee.kz'));
             },
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 8),
-              child: Text('rustdesk.com',
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                  )),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text('Официальный сайт: castbox.yeee.kz',
+                  style: TextStyle(decoration: TextDecoration.underline)),
+            )),
+        InkWell(
+            onTap: () async {
+              await launchUrl(Uri.parse('https://wa.me/77066066323'));
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text('WhatsApp: +7 (706) 606-63-23',
+                  style: TextStyle(decoration: TextDecoration.underline)),
+            )),
+        InkWell(
+            onTap: () async {
+              await launchUrl(Uri.parse('https://yeee.kz'));
+            },
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text('Экосистема проектов: yeee.kz · procam.yeee.kz',
+                  style: TextStyle(decoration: TextDecoration.underline)),
             )),
       ]),
       actions: [],

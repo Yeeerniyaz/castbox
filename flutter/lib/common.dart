@@ -3778,7 +3778,7 @@ Widget loadPowered(BuildContext context) {
     cursor: SystemMouseCursors.click,
     child: GestureDetector(
       onTap: () {
-        launchUrl(Uri.parse('https://github.com/rustdesk/rustdesk'));
+        launchUrl(Uri.parse('https://castbox.yeee.kz'));
       },
       child: Opacity(
           opacity: 0.5,

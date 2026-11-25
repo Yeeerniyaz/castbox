@@ -2599,11 +2599,9 @@ class _AboutState extends State<_About> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 8.0,
-              ),
+              const SizedBox(height: 8.0),
               SelectionArea(
-                  child: Text('${translate('Version')}: $version')
+                  child: Text('${translate('Version')}: $version · Сервер: 82.70.51.255')
                       .marginSymmetric(vertical: 4.0)),
               SelectionArea(
                   child: Text('${translate('Build Date')}: $buildDate')
@@ -2615,49 +2613,122 @@ class _AboutState extends State<_About> {
               SelectionArea(
                   child: Text('${translate('ID')}: $myId')
                       .marginSymmetric(vertical: 4.0)),
-              InkWell(
-                  onTap: () {
-                    launchUrlString('https://rustdesk.com/privacy.html');
-                  },
-                  child: Text(
-                    translate('Privacy Statement'),
-                    style: linkStyle,
-                  ).marginSymmetric(vertical: 4.0)),
-              InkWell(
-                  onTap: () {
-                    launchUrlString('https://rustdesk.com');
-                  },
-                  child: Text(
-                    translate('Website'),
-                    style: linkStyle,
-                  ).marginSymmetric(vertical: 4.0)),
+              const SizedBox(height: 8.0),
+              Wrap(
+                spacing: 18,
+                runSpacing: 8,
+                children: [
+                  InkWell(
+                      onTap: () => launchUrlString('https://castbox.yeee.kz'),
+                      child: const Text('🌐 Официальный сайт: castbox.yeee.kz', style: linkStyle)),
+                  InkWell(
+                      onTap: () => launchUrlString('https://castbox.yeee.kz/#download'),
+                      child: const Text('⬇ Скачать Castbox (Win / Android / Linux)', style: linkStyle)),
+                  InkWell(
+                      onTap: () => launchUrlString('https://castbox.yeee.kz/#docs'),
+                      child: const Text('📖 Инструкция', style: linkStyle)),
+                  InkWell(
+                      onTap: () => launchUrlString('https://castbox.yeee.kz/#privacy'),
+                      child: Text(translate('Privacy Statement'), style: linkStyle)),
+                ],
+              ).marginSymmetric(vertical: 6.0),
               Container(
-                decoration: const BoxDecoration(color: Color(0xFF2c8cff)),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF1E5EFF),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
                 child: SelectionArea(
-                    child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'О НАС · АВТОР И ИНЖЕНЕРНАЯ ЭКОСИСТЕМА YEEE.KZ',
+                        style: TextStyle(color: Color(0xFFD5E3FF), fontSize: 11, fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 6),
+                      const Text(
+                        'Ернияз Талғатулы — Инженер систем безопасности & Fullstack-разработчик (Алматы, Казахстан)',
+                        style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800),
+                      ),
+                      const SizedBox(height: 6),
+                      const Text(
+                        'Объединяем физическую инженерию слаботочных и сетевых систем (MikroTik, Hikvision, PoE) с разработкой собственного надежного программного обеспечения.',
+                        style: TextStyle(color: Color(0xFFEAF0FF), fontSize: 12.5),
+                      ),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 16,
+                        runSpacing: 6,
                         children: [
-                          Text(
-                            'Copyright © ${DateTime.now().toString().substring(0, 4)} Purslane Tech Pte. Ltd.\n$license',
-                            style: const TextStyle(color: Colors.white),
+                          InkWell(
+                            onTap: () => launchUrlString('https://wa.me/77066066323'),
+                            child: const Text('WhatsApp: +7 (706) 606-63-23',
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, decoration: TextDecoration.underline)),
                           ),
-                          Text(
-                            translate('Slogan_tip'),
-                            style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white),
-                          )
+                          InkWell(
+                            onTap: () => launchUrlString('tel:+77766066323'),
+                            child: const Text('Доп.: +7 (776) 606-63-23',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('https://t.me/yeeeerniyaz'),
+                            child: const Text('Telegram: @yeeeerniyaz',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('mailto:yeeerniyaz@gmail.com'),
+                            child: const Text('Email: yeeerniyaz@gmail.com',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
                         ],
                       ),
-                    ),
-                  ],
-                )),
-              ).marginSymmetric(vertical: 4.0)
+                      const SizedBox(height: 12),
+                      const Text(
+                        'Проекты экосистемы YEEE.KZ:',
+                        style: TextStyle(color: Color(0xFFD5E3FF), fontSize: 12, fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 4),
+                      Wrap(
+                        spacing: 14,
+                        runSpacing: 6,
+                        children: [
+                          InkWell(
+                            onTap: () => launchUrlString('https://castbox.yeee.kz'),
+                            child: const Text('• Castbox Remote (castbox.yeee.kz)',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('https://procam.yeee.kz'),
+                            child: const Text('• ProCam CCTV & Viewer (procam.yeee.kz)',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('https://procam.yeee.kz/#procam-radar'),
+                            child: const Text('• ProCam Radar v5.0',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('https://royalbanners.yeee.kz'),
+                            child: const Text('• Royal Banners (royalbanners.yeee.kz)',
+                                style: TextStyle(color: Colors.white, decoration: TextDecoration.underline)),
+                          ),
+                          InkWell(
+                            onTap: () => launchUrlString('https://yeee.kz'),
+                            child: const Text('• Портал разработчика: yeee.kz',
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, decoration: TextDecoration.underline)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        'Copyright © ${DateTime.now().toString().substring(0, 4)} Castbox · Ернияз Талғатулы (yeee.kz) · Лицензия: $license',
+                        style: const TextStyle(color: Color(0xFFD5E3FF), fontSize: 11.5),
+                      ),
+                    ],
+                  ),
+                ),
+              ).marginSymmetric(vertical: 6.0)
             ],
           ).marginOnly(left: _kContentHMargin)
         ]),
