@@ -92,9 +92,9 @@ BEGIN
             VALUE "CompanyName", "Castbox" "\0"
             VALUE "FileDescription", "Castbox Remote Desktop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "rustdesk" "\0"
-            VALUE "LegalCopyright", "Copyright © 2026 Castbox. Based on RustDesk (AGPL-3.0)." "\0"
-            VALUE "OriginalFilename", "rustdesk.exe" "\0"
+            VALUE "InternalName", "Castbox" "\0"
+            VALUE "LegalCopyright", "Copyright © 2026 Castbox." "\0"
+            VALUE "OriginalFilename", "Castbox.exe" "\0"
             VALUE "ProductName", "Castbox" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
